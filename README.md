@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# swim
+# swim <a href="https://jolenesutton.github.io/swim/"><img src="man/figures/logo_swim.png" align="right" height="124" alt="swim website" /></a>
 
 <!-- badges: start -->
 <!-- badges: end -->
