@@ -1,0 +1,80 @@
+---
+title: "Figure 2"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Figure 2}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Overview
+This vignette replicates Figure 2 in [].
+```{r setup, warning = FALSE, message = FALSE,error=FALSE}
+library(swim)
+library(ggplot2)
+library(terra)
+library(tidyterra)
+```
+
+# Assign events to spatial grid cells.
+The example data file `sampling.weights` contains a column of spatial grid cell identities and a column of sampling weights according to distance buffers.
+```{r }
+head(sampling.weights)
+```
+
+Use function `sw_sample` to assign 10,000 events to spatial grid cells.
+```{r }
+set.seed(12345)
+
+len=10000
+
+x1<-sw_sample(len,sampling.weights,option=1)#Option 1 = based on weighted random sampling
+x2<-sw_sample(len,sampling.weights,option=2)#Option 2 = distribute over ALL grid cells according to weight
+x3<-sw_sample(len,sampling.weights,option=3)#Option 3 = distribute over ALL grid cells evenly
+
+head(x1)
+x2
+x3
+```
+
+
+# Get example shapefiles for plotting
+```{r }
+shapes<-sw_internal_shapefiles('all')
+str(shapes)
+
+for(i in 3:5){
+  shapes[[i]]<-crop(shapes[[i]],shapes[[1]])
+}
+```
+
+
+# Plot 1
+```{r }
+#tally per hex
+x1b<-cbind.data.frame(table(x1))
+names(x1b)<-c('OBJECTID','count') #use same grid cell identity column header as shapefile
+head(x1b)
+
+grid.1b<-merge(shapes[[2]],x1b)
+
+(pl1<-ggplot()+
+    geom_spatvector(data=shapes[[1]],fill='white')+
+    geom_spatvector(data=grid.1b,aes(fill=count),col=NA)+
+    geom_spatvector(data=shapes[[3]],fill=NA,col='black',linewidth=0.5,linetype=4)+
+    geom_spatvector(data=shapes[[4]],fill=NA,col='black',linewidth=0.5,linetype=3)+
+    geom_spatvector(data=shapes[[5]],fill=NA,col='black',linewidth=0.5,linetype=2)+
+    scale_fill_viridis_c(name='Events',option='viridis',direction=-1,
+                         limits=c(0.01,8.05),
+                         begin = 0,end = 0.95)+
+    geom_spatvector(data=shapes[[1]],fill=NA))
+```
+
+

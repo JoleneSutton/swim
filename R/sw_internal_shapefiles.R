@@ -26,7 +26,10 @@ sw_internal_shapefiles<-function(x){
   buffer50<-terra::vect(buffer50, geom=c("geometry"), crs='ESRI:102001', keepgeom=F)
 
   my.list<-list(naf4t,spatial.grid,buffer10,buffer30,buffer50)
-  return(do.call(rbind,my.list))
+  names(my.list)=c('naf4t','spatial.grid','buffer10','buffer30','buffer50')
+  #return(do.call(rbind,my.list))
+  #return(vect(my.list))
+  return(my.list)
 
   }
 
