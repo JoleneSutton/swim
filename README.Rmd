@@ -18,37 +18,13 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of swim is to ...
+Functions for Spatial Weight Informed Mapping (**swim**), which enables integration of data from incongruent sources to generate a heterogeneous layer of sampling weights. Events missing geographic coordinates are assigned to a spatial grid using a probability-based framework informed by the sampling weights (i.e., sampling probabilities are proportional to assigned weights).
 
 ## Installation
 
-You can install the development version of swim like so:
+You can install **swim** with:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+# install.packages("devtools")
+devtools::install_github("JoleneSutton/swim")
 ```
-
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-```{r example}
-library(swim)
-## basic example code
-```
-
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
