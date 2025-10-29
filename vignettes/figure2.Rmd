@@ -1,6 +1,8 @@
 ---
 title: "Figure 2"
-output: rmarkdown::html_vignette
+output: 
+  rmarkdown::html_vignette:
+    code_folding: hide
 vignette: >
   %\VignetteIndexEntry{Figure 2}
   %\VignetteEngine{knitr::rmarkdown}
@@ -36,11 +38,19 @@ set.seed(12345)
 len=10000
 
 x1<-sw_sample(len,sampling.weights,option=1)#Option 1 = based on weighted random sampling
+
 x2<-sw_sample(len,sampling.weights,option=2)#Option 2 = distribute over ALL grid cells according to weight
+
 x3<-sw_sample(len,sampling.weights,option=3)#Option 3 = distribute over ALL grid cells evenly
 
+```
+
+Compare outputs from the three options.
+```{r }
 head(x1)
+
 x2
+
 x3
 ```
 
@@ -77,4 +87,43 @@ grid.1b<-merge(shapes[[2]],x1b)
     geom_spatvector(data=shapes[[1]],fill=NA))
 ```
 
+# Plot 2
+```{r }
+names(x2)[3]<-'count'
+grid.2<-merge(shapes[[2]],x2)
+grid.2<-grid.2[which(grid.2$count>0),]
+label2<-rev(round(unique(grid.2$count),2))
 
+(pl2<-ggplot()+
+    geom_spatvector(data=shapes[[1]],fill='white')+
+    geom_spatvector(data=grid.2,aes(fill=factor(count)),col=NA)+
+    scale_fill_viridis_d(name='Events',option='viridis',direction=-1,
+                         labels=label2,
+                         begin = 0,end = 0.95)+
+    guides(fill = guide_legend(reverse = TRUE))+
+    geom_spatvector(data=shapes[[3]],fill=NA,col='black',linewidth=0.5,linetype=4)+
+    geom_spatvector(data=shapes[[4]],fill=NA,col='black',linewidth=0.5,linetype=3)+
+    geom_spatvector(data=shapes[[5]],fill=NA,col='black',linewidth=0.5,linetype=2)+
+    geom_spatvector(data=shapes[[1]],fill=NA))
+```
+
+# Plot 3
+```{r }
+x3
+grid.3<-shapes[[2]]
+grid.3$count<-x3[,2]
+
+label3<-round(unique(grid.3$count),2)
+
+(pl3<-ggplot()+
+    geom_spatvector(data=grid.3,aes(fill=factor(count)),col=NA)+
+    scale_fill_viridis_d(name='Events',option='viridis',direction=-1,
+                         begin = 0,end = 0.95,
+                         label=label3)+
+    geom_spatvector(data=shapes[[1]],fill=NA))
+```
+
+# Combine
+```{r }
+
+```
