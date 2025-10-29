@@ -1,4 +1,10 @@
 url: https://jolenesutton.github.io/swim/
 template:
   bootstrap: 5
-
+reference:
+- title: Functions
+  contents:
+  - sw_sample
+  - sw_internal_shapefiles
+- title: Data
+  - sampling.weights
