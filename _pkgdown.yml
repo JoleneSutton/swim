@@ -7,4 +7,5 @@ reference:
   - sw_sample
   - sw_internal_shapefiles
 - title: Data
+  contents:
   - sampling.weights
