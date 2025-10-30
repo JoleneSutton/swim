@@ -126,7 +126,7 @@ pl3<-ggplot()+
 
 # Combine
 Set up
-```{r fig.width=6, fig.height=8}
+```{r fig.width=6, fig.height=8,out.width="100%"}
 CRS<-'epsg:4269'
 
 map.theme<-list(coord_sf(crs=CRS,xlim=c(-71,-60),ylim=c(45.55,49.5)),
