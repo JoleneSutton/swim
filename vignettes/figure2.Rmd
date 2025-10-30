@@ -126,7 +126,7 @@ pl3<-ggplot()+
 
 # Combine
 Set up
-```{r fig.width=6, fig.height=8,out.width="100%"}
+```{r }
 CRS<-'epsg:4269'
 
 map.theme<-list(coord_sf(crs=CRS,xlim=c(-71,-60),ylim=c(45.55,49.5)),
@@ -146,6 +146,6 @@ map.theme<-list(coord_sf(crs=CRS,xlim=c(-71,-60),ylim=c(45.55,49.5)),
 ```
 
 Plot
-```{r }
+```{r, fig.width=6, fig.height=8,out.width="100%"}
 (big.plot<-(pl1+map.theme+ggtitle('SWIM Option 1'))/(pl2+map.theme+ggtitle("SWIM Option 2"))/pl3+map.theme+ggtitle("Without sampling weights"))
 ```
