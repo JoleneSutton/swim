@@ -76,7 +76,7 @@ head(x1b)
 
 grid.1b<-merge(shapes[[2]],x1b)
 
-(pl1<-ggplot()+
+pl1<-ggplot()+
     geom_spatvector(data=shapes[[1]],fill='white')+
     geom_spatvector(data=grid.1b,aes(fill=count),col=NA)+
     geom_spatvector(data=shapes[[3]],fill=NA,col='black',linewidth=0.5,linetype=4)+
@@ -85,7 +85,7 @@ grid.1b<-merge(shapes[[2]],x1b)
     scale_fill_viridis_c(name='Events',option='viridis',direction=-1,
                          limits=c(0.01,8.05),
                          begin = 0,end = 0.95)+
-    geom_spatvector(data=shapes[[1]],fill=NA))
+    geom_spatvector(data=shapes[[1]],fill=NA)
 ```
 
 # Plot 2
@@ -95,7 +95,7 @@ grid.2<-merge(shapes[[2]],x2)
 grid.2<-grid.2[which(grid.2$count>0),]
 label2<-rev(round(unique(grid.2$count),2))
 
-(pl2<-ggplot()+
+pl2<-ggplot()+
     geom_spatvector(data=shapes[[1]],fill='white')+
     geom_spatvector(data=grid.2,aes(fill=factor(count)),col=NA)+
     scale_fill_viridis_d(name='Events',option='viridis',direction=-1,
@@ -105,7 +105,7 @@ label2<-rev(round(unique(grid.2$count),2))
     geom_spatvector(data=shapes[[3]],fill=NA,col='black',linewidth=0.5,linetype=4)+
     geom_spatvector(data=shapes[[4]],fill=NA,col='black',linewidth=0.5,linetype=3)+
     geom_spatvector(data=shapes[[5]],fill=NA,col='black',linewidth=0.5,linetype=2)+
-    geom_spatvector(data=shapes[[1]],fill=NA))
+    geom_spatvector(data=shapes[[1]],fill=NA)
 ```
 
 # Plot 3
@@ -116,17 +116,17 @@ grid.3$count<-x3[,2]
 
 label3<-round(unique(grid.3$count),2)
 
-(pl3<-ggplot()+
+pl3<-ggplot()+
     geom_spatvector(data=grid.3,aes(fill=factor(count)),col=NA)+
     scale_fill_viridis_d(name='Events',option='viridis',direction=-1,
                          begin = 0,end = 0.95,
                          label=label3)+
-    geom_spatvector(data=shapes[[1]],fill=NA))
+    geom_spatvector(data=shapes[[1]],fill=NA)
 ```
 
 # Combine
 Set up
-```{r }
+```{r fig.width=6, fig.height=8}
 CRS<-'epsg:4269'
 
 map.theme<-list(coord_sf(crs=CRS,xlim=c(-71,-60),ylim=c(45.55,49.5)),
