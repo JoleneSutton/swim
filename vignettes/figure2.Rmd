@@ -23,6 +23,7 @@ library(swim)
 library(ggplot2)
 library(terra)
 library(tidyterra)
+library(patchwork)
 ```
 
 # Assign events to spatial grid cells.
@@ -124,6 +125,27 @@ label3<-round(unique(grid.3$count),2)
 ```
 
 # Combine
+Set up
 ```{r }
+CRS<-'epsg:4269'
 
+map.theme<-list(coord_sf(crs=CRS,xlim=c(-71,-60),ylim=c(45.55,49.5)),
+                theme(panel.grid.major = element_blank(),
+                      panel.grid.minor = element_blank(),
+                      axis.text = element_blank(),  # Remove axis text
+                      axis.ticks = element_blank(), # Remove axis ticks
+                      axis.title = element_blank()  # Remove axis titles
+                ),
+                theme(
+                  legend.title = element_text(size = 13),
+                  legend.position = "right",
+                  legend.text = element_text(size = 12),
+                  legend.key.size = unit(1, "cm"),
+                  legend.justification = "left",
+                  legend.box.margin = margin(l = 0.05, unit = "cm")   ))
+```
+
+Plot
+```{r }
+(big.plot<-(pl1+map.theme+ggtitle('SWIM Option 1'))/(pl2+map.theme+ggtitle("SWIM Option 2"))/pl3+map.theme+ggtitle("Without sampling weights"))
 ```
