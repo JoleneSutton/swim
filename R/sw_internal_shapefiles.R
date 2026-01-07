@@ -25,8 +25,16 @@ sw_internal_shapefiles<-function(x){
   buffer50<-readRDS(system.file('extdata','buffer50_list.rds',package='swim'))
   buffer50<-terra::vect(buffer50, geom=c("geometry"), crs='ESRI:102001', keepgeom=F)
 
-  my.list<-list(naf4t,spatial.grid,buffer10,buffer30,buffer50)
-  names(my.list)=c('naf4t','spatial.grid','buffer10','buffer30','buffer50')
+
+
+  ref.grid<-readRDS(system.file('extdata','ref_grid_list.rds',package='swim'))
+  ref.grid<-terra::vect(ref.grid, geom=c("geometry"), crs='ESRI:102001', keepgeom=F)
+
+  coastline.coarse<-readRDS(system.file('extdata','coast_coarse_list.rds',package='swim'))
+  coastline.coarse<-terra::vect(coastline.coarse, geom=c("geometry"), crs='ESRI:102001', keepgeom=F)
+
+  my.list<-list(naf4t,spatial.grid,buffer10,buffer30,buffer50, ref.grid, coastline.coarse)
+  names(my.list)=c('naf4t','spatial.grid','buffer10','buffer30','buffer50','ref.grid', 'coastline.coarse')
   #return(do.call(rbind,my.list))
   #return(vect(my.list))
   return(my.list)
