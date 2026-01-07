@@ -17,6 +17,7 @@ Depends:
 Imports: 
     dplyr(>= 1.1.4),
     terra (>= 1.0.0),
+    utils (>= 4.4.0),
     zen4R (>= 0.10.4)
 URL: https://github.com/JoleneSutton/swim, https://jolenesutton.github.io/swim/
 BugReports: https://github.com/JoleneSutton/swim/issues
