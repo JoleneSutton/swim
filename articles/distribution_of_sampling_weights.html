@@ -78,8 +78,8 @@ respectively. Grid cells beyond 50 km are assigned sampling weights of
 <p>Next, sampling weights are generated based on depth. Spatial grid
 cells that have median depths of 10-20 m, and 20-50 m are assigned
 sampling weights of 1 and 0.5, respectively.</p>
-<p>Finally, the two different sampling weights area combined to produce
-a single sampling weight for each spatial grid cell.</p>
+<p>Finally, the two different sampling weights are combined to produce a
+single sampling weight for each spatial grid cell.</p>
 </div>
 <div class="section level2">
 <h2 id="r-packages">R packages<a class="anchor" aria-label="anchor" href="#r-packages"></a>
@@ -161,6 +161,9 @@ respectively. Grid cells beyond 50 km are assigned sampling weights of
 <span><span class="co">#&gt;                2.581e+05 ATE-1219     4.908    4T 8.762         1</span></span>
 <span><span class="co">#&gt;                2.581e+05 ATF-1219     10.57    4T 9.833         1</span></span>
 <span></span>
+<span><span class="co">#for plotting purposes, change values of zero to NA</span></span>
+<span><span class="va">ref_grid</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">ref_grid</span><span class="op">$</span><span class="va">dist.wght</span><span class="op">==</span><span class="fl">0</span><span class="op">)</span>,<span class="st">'dist.wght'</span><span class="op">]</span><span class="op">&lt;-</span><span class="cn">NA</span></span>
+<span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">ref_grid</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill<span class="op">=</span><span class="va">dist.wght</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_fill_viridis_c</a></span><span class="op">(</span>direction<span class="op">=</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div>
@@ -182,6 +185,21 @@ All other grid cells are assigned sampling weights of 0.</p>
 <span>  <span class="va">ref_grid</span><span class="op">[</span><span class="va">index</span>,<span class="st">'depth.wght'</span><span class="op">]</span><span class="op">&lt;-</span><span class="va">weights</span><span class="op">[</span><span class="va">i</span><span class="op">]</span></span>
 <span>    <span class="op">}</span></span>
 <span></span>
+<span><span class="va">ref_grid</span></span>
+<span><span class="co">#&gt;  class       : SpatVector </span></span>
+<span><span class="co">#&gt;  geometry    : polygons </span></span>
+<span><span class="co">#&gt;  dimensions  : 11124, 7  (geometries, attributes)</span></span>
+<span><span class="co">#&gt;  extent      : 1864640, 2608453, 1092588, 1564352  (xmin, xmax, ymin, ymax)</span></span>
+<span><span class="co">#&gt;  coord. ref. : Canada_Albers_Equal_Area_Conic (ESRI:102001) </span></span>
+<span><span class="co">#&gt;  names       :  OBJECTID  GRID_ID depth.med  nafo  area dist.wght depth.wght</span></span>
+<span><span class="co">#&gt;  type        :     &lt;num&gt;    &lt;chr&gt;     &lt;num&gt; &lt;chr&gt; &lt;num&gt;     &lt;num&gt;      &lt;num&gt;</span></span>
+<span><span class="co">#&gt;  values      :  2.57e+05 ATD-1220     9.867    4T  7.84         1          0</span></span>
+<span><span class="co">#&gt;                2.581e+05 ATE-1219     4.908    4T 8.762         1          0</span></span>
+<span><span class="co">#&gt;                2.581e+05 ATF-1219     10.57    4T 9.833         1          1</span></span>
+<span></span>
+<span><span class="co">#for plotting purposes, change values of zero to NA</span></span>
+<span><span class="va">ref_grid</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">ref_grid</span><span class="op">$</span><span class="va">depth.wght</span><span class="op">==</span><span class="fl">0</span><span class="op">)</span>,<span class="st">'depth.wght'</span><span class="op">]</span><span class="op">&lt;-</span><span class="cn">NA</span></span>
+<span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">ref_grid</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill<span class="op">=</span><span class="va">depth.wght</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_fill_viridis_c</a></span><span class="op">(</span>direction<span class="op">=</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div>
@@ -195,6 +213,23 @@ sampling weights are multiplied to produce a single sampling weight for
 each grid cell.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ref_grid</span><span class="op">$</span><span class="va">wght</span><span class="op">&lt;-</span><span class="va">ref_grid</span><span class="op">$</span><span class="va">dist.wght</span><span class="op">*</span><span class="va">ref_grid</span><span class="op">$</span><span class="va">depth.wght</span></span>
+<span></span>
+<span><span class="va">ref_grid</span></span>
+<span><span class="co">#&gt;  class       : SpatVector </span></span>
+<span><span class="co">#&gt;  geometry    : polygons </span></span>
+<span><span class="co">#&gt;  dimensions  : 11124, 8  (geometries, attributes)</span></span>
+<span><span class="co">#&gt;  extent      : 1864640, 2608453, 1092588, 1564352  (xmin, xmax, ymin, ymax)</span></span>
+<span><span class="co">#&gt;  coord. ref. : Canada_Albers_Equal_Area_Conic (ESRI:102001) </span></span>
+<span><span class="co">#&gt;  names       :  OBJECTID  GRID_ID depth.med  nafo  area dist.wght depth.wght</span></span>
+<span><span class="co">#&gt;  type        :     &lt;num&gt;    &lt;chr&gt;     &lt;num&gt; &lt;chr&gt; &lt;num&gt;     &lt;num&gt;      &lt;num&gt;</span></span>
+<span><span class="co">#&gt;  values      :  2.57e+05 ATD-1220     9.867    4T  7.84         1         NA</span></span>
+<span><span class="co">#&gt;                2.581e+05 ATE-1219     4.908    4T 8.762         1         NA</span></span>
+<span><span class="co">#&gt;                2.581e+05 ATF-1219     10.57    4T 9.833         1          1</span></span>
+<span><span class="co">#&gt;   wght</span></span>
+<span><span class="co">#&gt;  &lt;num&gt;</span></span>
+<span><span class="co">#&gt;     NA</span></span>
+<span><span class="co">#&gt;     NA</span></span>
+<span><span class="co">#&gt;      1</span></span>
 <span></span>
 <span><span class="co">#for plotting purposes, change values of zero to NA</span></span>
 <span><span class="va">ref_grid</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">ref_grid</span><span class="op">$</span><span class="va">wght</span><span class="op">==</span><span class="fl">0</span><span class="op">)</span>,<span class="st">'wght'</span><span class="op">]</span><span class="op">&lt;-</span><span class="cn">NA</span></span>

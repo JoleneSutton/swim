@@ -15,7 +15,7 @@ Next, sampling weights are generated based on depth. Spatial grid cells
 that have median depths of 10-20 m, and 20-50 m are assigned sampling
 weights of 1 and 0.5, respectively.
 
-Finally, the two different sampling weights area combined to produce a
+Finally, the two different sampling weights are combined to produce a
 single sampling weight for each spatial grid cell.
 
 ## R packages
@@ -104,6 +104,9 @@ ref_grid
 #>                2.581e+05 ATE-1219     4.908    4T 8.762         1
 #>                2.581e+05 ATF-1219     10.57    4T 9.833         1
 
+#for plotting purposes, change values of zero to NA
+ref_grid[which(ref_grid$dist.wght==0),'dist.wght']<-NA
+
 ggplot()+
   geom_spatvector(data=ref_grid,aes(fill=dist.wght))+
   scale_fill_viridis_c(direction=-1)
@@ -127,6 +130,21 @@ for(i in 1:length(start.depths)){
   ref_grid[index,'depth.wght']<-weights[i]
     }
 
+ref_grid
+#>  class       : SpatVector 
+#>  geometry    : polygons 
+#>  dimensions  : 11124, 7  (geometries, attributes)
+#>  extent      : 1864640, 2608453, 1092588, 1564352  (xmin, xmax, ymin, ymax)
+#>  coord. ref. : Canada_Albers_Equal_Area_Conic (ESRI:102001) 
+#>  names       :  OBJECTID  GRID_ID depth.med  nafo  area dist.wght depth.wght
+#>  type        :     <num>    <chr>     <num> <chr> <num>     <num>      <num>
+#>  values      :  2.57e+05 ATD-1220     9.867    4T  7.84         1          0
+#>                2.581e+05 ATE-1219     4.908    4T 8.762         1          0
+#>                2.581e+05 ATF-1219     10.57    4T 9.833         1          1
+
+#for plotting purposes, change values of zero to NA
+ref_grid[which(ref_grid$depth.wght==0),'depth.wght']<-NA
+
 ggplot()+
   geom_spatvector(data=ref_grid,aes(fill=depth.wght))+
   scale_fill_viridis_c(direction=-1)
@@ -142,6 +160,23 @@ cell.
 
 ``` r
 ref_grid$wght<-ref_grid$dist.wght*ref_grid$depth.wght
+
+ref_grid
+#>  class       : SpatVector 
+#>  geometry    : polygons 
+#>  dimensions  : 11124, 8  (geometries, attributes)
+#>  extent      : 1864640, 2608453, 1092588, 1564352  (xmin, xmax, ymin, ymax)
+#>  coord. ref. : Canada_Albers_Equal_Area_Conic (ESRI:102001) 
+#>  names       :  OBJECTID  GRID_ID depth.med  nafo  area dist.wght depth.wght
+#>  type        :     <num>    <chr>     <num> <chr> <num>     <num>      <num>
+#>  values      :  2.57e+05 ATD-1220     9.867    4T  7.84         1         NA
+#>                2.581e+05 ATE-1219     4.908    4T 8.762         1         NA
+#>                2.581e+05 ATF-1219     10.57    4T 9.833         1          1
+#>   wght
+#>  <num>
+#>     NA
+#>     NA
+#>      1
 
 #for plotting purposes, change values of zero to NA
 ref_grid[which(ref_grid$wght==0),'wght']<-NA
