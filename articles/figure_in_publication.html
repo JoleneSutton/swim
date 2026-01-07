@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Figure 2 • swim</title>
+<title>Figure in publication • swim</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Figure 2">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Figure in publication">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -57,11 +57,11 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1>Figure 2</h1>
+      <h1>Figure in publication</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/JoleneSutton/swim/blob/master/vignettes/figure2.Rmd" class="external-link"><code>vignettes/figure2.Rmd</code></a></small>
-      <div class="d-none name"><code>figure2.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/JoleneSutton/swim/blob/master/vignettes/figure_in_publication.Rmd" class="external-link"><code>vignettes/figure_in_publication.Rmd</code></a></small>
+      <div class="d-none name"><code>figure_in_publication.Rmd</code></div>
     </div>
 
     
@@ -69,13 +69,40 @@
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p>This vignette replicates Figure 2 in [].</p>
+<p>This vignette replicates Figure 3 in [].</p>
+</div>
+<div class="section level2">
+<h2 id="r-packages">R packages<a class="anchor" aria-label="anchor" href="#r-packages"></a>
+</h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/JoleneSutton/swim" class="external-link">swim</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/eblondel/zen4R" class="external-link">zen4R</a></span><span class="op">)</span> <span class="co">#to access SWIM example shapefiles stored on Zenodo</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/" class="external-link">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com" class="external-link">patchwork</a></span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="load-swim-example-shapefiles">Load SWIM example shapefiles<a class="anchor" aria-label="anchor" href="#load-swim-example-shapefiles"></a>
+</h2>
+<p>These files are stored on Zenodo at <a href="https://zenodo.org/records/18165445" class="external-link uri">https://zenodo.org/records/18165445</a>.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/sw_example_shapefiles.html">sw_example_shapefiles</a></span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="co">#TRUE will create a folder to save these files in your working directory</span></span>
+<span><span class="co">#&gt; Fetching SWIM example shapefiles from https://zenodo.org/records/18165445.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Successfully fetched list of published records - page 1 (size = 10)</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Successfully fetched list of published records!</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Successfully fetched record for id '18165445'!</span></span>
+<span><span class="co">#&gt; Found 6 files in zenodo record 18165445</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/rm.html" class="external-link">rm</a></span><span class="op">(</span><span class="va">coast_coarse</span><span class="op">)</span><span class="co">#We only need some of them for this vignette</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/ls.html" class="external-link">ls</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "buffer10" "buffer30" "buffer50" "nafo_4t"  "ref_grid"</span></span>
+<span></span>
+<span><span class="co"># crop the buffer shapefiles to the nafo shapefile</span></span>
+<span><span class="va">buffer10</span><span class="op">&lt;-</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/crop.html" class="external-link">crop</a></span><span class="op">(</span><span class="va">buffer10</span>,<span class="va">nafo_4t</span><span class="op">)</span></span>
+<span><span class="va">buffer30</span><span class="op">&lt;-</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/crop.html" class="external-link">crop</a></span><span class="op">(</span><span class="va">buffer30</span>,<span class="va">nafo_4t</span><span class="op">)</span></span>
+<span><span class="va">buffer50</span><span class="op">&lt;-</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/crop.html" class="external-link">crop</a></span><span class="op">(</span><span class="va">buffer50</span>,<span class="va">nafo_4t</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="assign-events-to-spatial-grid-cells-">Assign events to spatial grid cells.<a class="anchor" aria-label="anchor" href="#assign-events-to-spatial-grid-cells-"></a>
@@ -83,7 +110,7 @@
 <p>The example data file <code>sampling.weights</code> contains a column
 of spatial grid cell identities and a column of sampling weights
 according to distance buffers.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="va">sampling.weights</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   OBJECTID weight</span></span>
 <span><span class="co">#&gt; 1   255891      1</span></span>
@@ -94,7 +121,7 @@ according to distance buffers.</p>
 <span><span class="co">#&gt; 6   258105      1</span></span></code></pre></div>
 <p>Use function <code>sw_sample</code> to assign 10,000 events to
 spatial grid cells.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">12345</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">len</span><span class="op">=</span><span class="fl">10000</span></span>
@@ -108,7 +135,7 @@ spatial grid cells.</p>
 <span><span class="va">x3</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/sw_sample.html">sw_sample</a></span><span class="op">(</span><span class="va">len</span>,<span class="va">sampling.weights</span>,option<span class="op">=</span><span class="fl">3</span><span class="op">)</span><span class="co">#Option 3 = distribute over ALL grid cells evenly</span></span>
 <span><span class="co">#&gt; Returning data frame of number grid cells and the number of events per grid cell</span></span></code></pre></div>
 <p>Compare outputs from the three options.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 351939 347278 332847 273856 335121 268184</span></span>
 <span></span>
@@ -122,25 +149,6 @@ spatial grid cells.</p>
 <span><span class="va">x3</span></span>
 <span><span class="co">#&gt;   cells n.per.cell</span></span>
 <span><span class="co">#&gt; 1 12022  0.8318084</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="get-example-shapefiles-for-plotting">Get example shapefiles for plotting<a class="anchor" aria-label="anchor" href="#get-example-shapefiles-for-plotting"></a>
-</h2>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">shapes</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/sw_internal_shapefiles.html">sw_internal_shapefiles</a></span><span class="op">(</span><span class="st">'all'</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">shapes</span><span class="op">)</span></span>
-<span><span class="co">#&gt; List of 7</span></span>
-<span><span class="co">#&gt;  $ naf4t           :S4 class 'SpatVector' [package "terra"]</span></span>
-<span><span class="co">#&gt;  $ spatial.grid    :S4 class 'SpatVector' [package "terra"]</span></span>
-<span><span class="co">#&gt;  $ buffer10        :S4 class 'SpatVector' [package "terra"]</span></span>
-<span><span class="co">#&gt;  $ buffer30        :S4 class 'SpatVector' [package "terra"]</span></span>
-<span><span class="co">#&gt;  $ buffer50        :S4 class 'SpatVector' [package "terra"]</span></span>
-<span><span class="co">#&gt;  $ ref.grid        :S4 class 'SpatVector' [package "terra"]</span></span>
-<span><span class="co">#&gt;  $ coastline.coarse:S4 class 'SpatVector' [package "terra"]</span></span>
-<span></span>
-<span><span class="kw">for</span><span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">3</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span><span class="op">{</span></span>
-<span>  <span class="va">shapes</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span><span class="op">&lt;-</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/crop.html" class="external-link">crop</a></span><span class="op">(</span><span class="va">shapes</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span>,<span class="va">shapes</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="plot-1">Plot 1<a class="anchor" aria-label="anchor" href="#plot-1"></a>
@@ -158,39 +166,48 @@ spatial grid cells.</p>
 <span><span class="co">#&gt; 5   258105     3</span></span>
 <span><span class="co">#&gt; 6   258106     2</span></span>
 <span></span>
-<span><span class="va">grid.1b</span><span class="op">&lt;-</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/merge.html" class="external-link">merge</a></span><span class="op">(</span><span class="va">shapes</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>,<span class="va">x1b</span><span class="op">)</span></span>
+<span><span class="va">grid.1b</span><span class="op">&lt;-</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/merge.html" class="external-link">merge</a></span><span class="op">(</span><span class="va">ref_grid</span>,<span class="va">x1b</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">pl1</span><span class="op">&lt;-</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">shapes</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>,fill<span class="op">=</span><span class="st">'white'</span><span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">nafo_4t</span>,fill<span class="op">=</span><span class="st">'white'</span><span class="op">)</span><span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">grid.1b</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill<span class="op">=</span><span class="va">count</span><span class="op">)</span>,col<span class="op">=</span><span class="cn">NA</span><span class="op">)</span><span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">shapes</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span>,fill<span class="op">=</span><span class="cn">NA</span>,col<span class="op">=</span><span class="st">'black'</span>,linewidth<span class="op">=</span><span class="fl">0.5</span>,linetype<span class="op">=</span><span class="fl">4</span><span class="op">)</span><span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">shapes</span><span class="op">[[</span><span class="fl">4</span><span class="op">]</span><span class="op">]</span>,fill<span class="op">=</span><span class="cn">NA</span>,col<span class="op">=</span><span class="st">'black'</span>,linewidth<span class="op">=</span><span class="fl">0.5</span>,linetype<span class="op">=</span><span class="fl">3</span><span class="op">)</span><span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">shapes</span><span class="op">[[</span><span class="fl">5</span><span class="op">]</span><span class="op">]</span>,fill<span class="op">=</span><span class="cn">NA</span>,col<span class="op">=</span><span class="st">'black'</span>,linewidth<span class="op">=</span><span class="fl">0.5</span>,linetype<span class="op">=</span><span class="fl">2</span><span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">buffer10</span>,fill<span class="op">=</span><span class="cn">NA</span>,col<span class="op">=</span><span class="st">'black'</span>,linewidth<span class="op">=</span><span class="fl">0.5</span>,linetype<span class="op">=</span><span class="fl">4</span><span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">buffer30</span>,fill<span class="op">=</span><span class="cn">NA</span>,col<span class="op">=</span><span class="st">'black'</span>,linewidth<span class="op">=</span><span class="fl">0.5</span>,linetype<span class="op">=</span><span class="fl">3</span><span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">buffer50</span>,fill<span class="op">=</span><span class="cn">NA</span>,col<span class="op">=</span><span class="st">'black'</span>,linewidth<span class="op">=</span><span class="fl">0.5</span>,linetype<span class="op">=</span><span class="fl">2</span><span class="op">)</span><span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_fill_viridis_c</a></span><span class="op">(</span>name<span class="op">=</span><span class="st">'Events'</span>,option<span class="op">=</span><span class="st">'viridis'</span>,direction<span class="op">=</span><span class="op">-</span><span class="fl">1</span>,</span>
 <span>                         limits<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.01</span>,<span class="fl">8.05</span><span class="op">)</span>,</span>
 <span>                         begin <span class="op">=</span> <span class="fl">0</span>,end <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span><span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">shapes</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>,fill<span class="op">=</span><span class="cn">NA</span><span class="op">)</span></span></code></pre></div>
+<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">nafo_4t</span>,fill<span class="op">=</span><span class="cn">NA</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="plot-2">Plot 2<a class="anchor" aria-label="anchor" href="#plot-2"></a>
 </h2>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">x2</span><span class="op">)</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">&lt;-</span><span class="st">'count'</span></span>
-<span><span class="va">grid.2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/merge.html" class="external-link">merge</a></span><span class="op">(</span><span class="va">shapes</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>,<span class="va">x2</span><span class="op">)</span></span>
+<span><span class="va">grid.2</span><span class="op">&lt;-</span><span class="va">ref_grid</span></span>
+<span><span class="va">grid.2</span><span class="op">$</span><span class="va">count</span><span class="op">&lt;-</span><span class="fl">0</span></span>
+<span><span class="va">buffers</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">buffer50</span>,<span class="va">buffer30</span>,<span class="va">buffer10</span><span class="op">)</span><span class="co">#km</span></span>
+<span><span class="va">counts</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.05</span>,<span class="fl">0.41</span>,<span class="fl">1.89</span><span class="op">)</span></span>
+<span><span class="kw">for</span><span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">buffers</span><span class="op">)</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="va">buf</span><span class="op">&lt;-</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">buffers</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span></span>
+<span>  <span class="va">index</span><span class="op">&lt;-</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/intersect.html" class="external-link">intersect</a></span><span class="op">(</span><span class="va">buf</span>,<span class="va">grid.2</span><span class="op">)</span></span>
+<span>  <span class="va">grid.2</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">grid.2</span><span class="op">$</span><span class="va">OBJECTID</span><span class="op"><a href="https://rspatial.github.io/terra/reference/match.html" class="external-link">%in%</a></span><span class="va">index</span><span class="op">$</span><span class="va">OBJECTID</span><span class="op">)</span>,<span class="st">'count'</span><span class="op">]</span><span class="op">&lt;-</span><span class="va">counts</span><span class="op">[</span><span class="va">i</span><span class="op">]</span></span>
+<span>  <span class="op">}</span></span>
+<span></span>
 <span><span class="va">grid.2</span><span class="op">&lt;-</span><span class="va">grid.2</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">grid.2</span><span class="op">$</span><span class="va">count</span><span class="op">&gt;</span><span class="fl">0</span><span class="op">)</span>,<span class="op">]</span></span>
 <span><span class="va">label2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/flip.html" class="external-link">rev</a></span><span class="op">(</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/math-generics.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">grid.2</span><span class="op">$</span><span class="va">count</span><span class="op">)</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">pl2</span><span class="op">&lt;-</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">shapes</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>,fill<span class="op">=</span><span class="st">'white'</span><span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">nafo_4t</span>,fill<span class="op">=</span><span class="st">'white'</span><span class="op">)</span><span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">grid.2</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">count</span><span class="op">)</span><span class="op">)</span>,col<span class="op">=</span><span class="cn">NA</span><span class="op">)</span><span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_fill_viridis_d</a></span><span class="op">(</span>name<span class="op">=</span><span class="st">'Events'</span>,option<span class="op">=</span><span class="st">'viridis'</span>,direction<span class="op">=</span><span class="op">-</span><span class="fl">1</span>,</span>
 <span>                         labels<span class="op">=</span><span class="va">label2</span>,</span>
 <span>                         begin <span class="op">=</span> <span class="fl">0</span>,end <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span><span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html" class="external-link">guide_legend</a></span><span class="op">(</span>reverse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">shapes</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span>,fill<span class="op">=</span><span class="cn">NA</span>,col<span class="op">=</span><span class="st">'black'</span>,linewidth<span class="op">=</span><span class="fl">0.5</span>,linetype<span class="op">=</span><span class="fl">4</span><span class="op">)</span><span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">shapes</span><span class="op">[[</span><span class="fl">4</span><span class="op">]</span><span class="op">]</span>,fill<span class="op">=</span><span class="cn">NA</span>,col<span class="op">=</span><span class="st">'black'</span>,linewidth<span class="op">=</span><span class="fl">0.5</span>,linetype<span class="op">=</span><span class="fl">3</span><span class="op">)</span><span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">shapes</span><span class="op">[[</span><span class="fl">5</span><span class="op">]</span><span class="op">]</span>,fill<span class="op">=</span><span class="cn">NA</span>,col<span class="op">=</span><span class="st">'black'</span>,linewidth<span class="op">=</span><span class="fl">0.5</span>,linetype<span class="op">=</span><span class="fl">2</span><span class="op">)</span><span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">shapes</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>,fill<span class="op">=</span><span class="cn">NA</span><span class="op">)</span></span></code></pre></div>
+<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">buffer10</span>,fill<span class="op">=</span><span class="cn">NA</span>,col<span class="op">=</span><span class="st">'black'</span>,linewidth<span class="op">=</span><span class="fl">0.5</span>,linetype<span class="op">=</span><span class="fl">4</span><span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">buffer30</span>,fill<span class="op">=</span><span class="cn">NA</span>,col<span class="op">=</span><span class="st">'black'</span>,linewidth<span class="op">=</span><span class="fl">0.5</span>,linetype<span class="op">=</span><span class="fl">3</span><span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">buffer50</span>,fill<span class="op">=</span><span class="cn">NA</span>,col<span class="op">=</span><span class="st">'black'</span>,linewidth<span class="op">=</span><span class="fl">0.5</span>,linetype<span class="op">=</span><span class="fl">2</span><span class="op">)</span><span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">nafo_4t</span>,fill<span class="op">=</span><span class="cn">NA</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="plot-3">Plot 3<a class="anchor" aria-label="anchor" href="#plot-3"></a>
@@ -199,7 +216,7 @@ spatial grid cells.</p>
 <code class="sourceCode R"><span><span class="va">x3</span></span>
 <span><span class="co">#&gt;   cells n.per.cell</span></span>
 <span><span class="co">#&gt; 1 12022  0.8318084</span></span>
-<span><span class="va">grid.3</span><span class="op">&lt;-</span><span class="va">shapes</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></span>
+<span><span class="va">grid.3</span><span class="op">&lt;-</span><span class="va">ref_grid</span></span>
 <span><span class="va">grid.3</span><span class="op">$</span><span class="va">count</span><span class="op">&lt;-</span><span class="va">x3</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span></span>
 <span></span>
 <span><span class="va">label3</span><span class="op">&lt;-</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/math-generics.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">grid.3</span><span class="op">$</span><span class="va">count</span><span class="op">)</span>,<span class="fl">2</span><span class="op">)</span></span>
@@ -209,7 +226,7 @@ spatial grid cells.</p>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_fill_viridis_d</a></span><span class="op">(</span>name<span class="op">=</span><span class="st">'Events'</span>,option<span class="op">=</span><span class="st">'viridis'</span>,direction<span class="op">=</span><span class="op">-</span><span class="fl">1</span>,</span>
 <span>                         begin <span class="op">=</span> <span class="fl">0</span>,end <span class="op">=</span> <span class="fl">0.95</span>,</span>
 <span>                         label<span class="op">=</span><span class="va">label3</span><span class="op">)</span><span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">shapes</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>,fill<span class="op">=</span><span class="cn">NA</span><span class="op">)</span></span></code></pre></div>
+<span>    <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">nafo_4t</span>,fill<span class="op">=</span><span class="cn">NA</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="combine">Combine<a class="anchor" aria-label="anchor" href="#combine"></a>
@@ -235,7 +252,7 @@ spatial grid cells.</p>
 <p>Plot</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">big.plot</span><span class="op">&lt;-</span><span class="op">(</span><span class="va">pl1</span><span class="op">+</span><span class="va">map.theme</span><span class="op">+</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">'SWIM Option 1'</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">pl2</span><span class="op">+</span><span class="va">map.theme</span><span class="op">+</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"SWIM Option 2"</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="va">pl3</span><span class="op">+</span><span class="va">map.theme</span><span class="op">+</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"Without sampling weights"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="figure2_files/figure-html/unnamed-chunk-10-1.png" class="r-plt" alt="" width="100%"></p>
+<p><img src="figure_in_publication_files/figure-html/unnamed-chunk-10-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
