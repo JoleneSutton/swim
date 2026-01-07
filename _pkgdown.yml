@@ -6,6 +6,7 @@ reference:
   contents:
   - sw_sample
   - sw_internal_shapefiles
+  - sw_example_shapefiles
 - title: Data
   contents:
   - sampling.weights
