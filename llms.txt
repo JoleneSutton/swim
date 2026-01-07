@@ -22,8 +22,6 @@ devtools::install_github("JoleneSutton/swim")
 
 - [`sw_sample()`](https://jolenesutton.github.io/swim/reference/sw_sample.md)
   : Swim Sample
-- [`sw_internal_shapefiles()`](https://jolenesutton.github.io/swim/reference/sw_internal_shapefiles.md)
-  : Get the example shapefiles
 - [`sw_example_shapefiles()`](https://jolenesutton.github.io/swim/reference/sw_example_shapefiles.md)
   : Get the example shapefiles
 
@@ -40,4 +38,3 @@ devtools::install_github("JoleneSutton/swim")
   weights](https://jolenesutton.github.io/swim/articles/distribution_of_sampling_weights.md):
 - [Figure in
   publication](https://jolenesutton.github.io/swim/articles/figure_in_publication.md):
-- [Figure 2](https://jolenesutton.github.io/swim/articles/figure2.md):

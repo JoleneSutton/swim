@@ -6,4 +6,3 @@
   weights](https://jolenesutton.github.io/swim/articles/distribution_of_sampling_weights.md):
 - [Figure in
   publication](https://jolenesutton.github.io/swim/articles/figure_in_publication.md):
-- [Figure 2](https://jolenesutton.github.io/swim/articles/figure2.md):
