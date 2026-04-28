@@ -13,6 +13,10 @@ assigned to a spatial grid using a probability-based framework informed
 by the sampling weights (i.e., sampling probabilities are proportional
 to assigned weights).
 
+**SWIM** is described in **A framework to map fishing activity from
+incomplete data** (DOI: 10.1093/icesjms/fsag070), which was recently
+accepted to *ICES Journal of Marine Science*.
+
 ## Installation
 
 You can install **SWIM** with:
