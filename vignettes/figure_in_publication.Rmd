@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 ```
 
 # Overview
-This vignette replicates Figure 3 in [].
+This vignette replicates Figure 3 in **A framework to map fishing activity from incomplete data** (DOI: 10.1093/icesjms/fsag070), accepted to *ICES Journal of Marine Science*.
 
 # R packages
 ```{r setup, warning = FALSE, message = FALSE,error=FALSE}
