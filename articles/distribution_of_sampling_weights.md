@@ -36,6 +36,7 @@ These files are stored on Zenodo at
 ``` r
 sw_example_shapefiles(FALSE) #TRUE will create a folder to save these files in your working directory
 #> Fetching SWIM example shapefiles from https://zenodo.org/records/18165445.
+#> ℹ Number of records: 1
 #> ℹ Successfully fetched list of published records - page 1 (size = 10)
 #> ✔ Successfully fetched list of published records!
 #> ✔ Successfully fetched record for id '18165445'!

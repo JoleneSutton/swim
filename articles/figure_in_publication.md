@@ -2,7 +2,9 @@
 
 ## Overview
 
-This vignette replicates Figure 3 in \[\].
+This vignette replicates Figure 3 in **A framework to map fishing
+activity from incomplete data** (DOI: 10.1093/icesjms/fsag070), accepted
+to *ICES Journal of Marine Science*.
 
 ## R packages
 
@@ -23,6 +25,7 @@ These files are stored on Zenodo at
 ``` r
 sw_example_shapefiles(FALSE) #TRUE will create a folder to save these files in your working directory
 #> Fetching SWIM example shapefiles from https://zenodo.org/records/18165445.
+#> ℹ Number of records: 1
 #> ℹ Successfully fetched list of published records - page 1 (size = 10)
 #> ✔ Successfully fetched list of published records!
 #> ✔ Successfully fetched record for id '18165445'!
